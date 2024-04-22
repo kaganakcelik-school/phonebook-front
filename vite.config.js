@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
   	proxy: {
 			'/api': {
-				target: 'https://d8233201-3508-4bf8-9607-4cc95993078b-00-280nk92uiyvtf.spock.repl.co:8080',
+				target: 'https://b952bbbf-f04d-41a7-a07f-e52269fb33b4-00-vyh9dqzu1wlk.kirk.repl.co:8080',
 				changeOrigin: true,
 			},
 		}

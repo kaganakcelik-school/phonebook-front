@@ -150,25 +150,30 @@ const App = () => {
 			number: newNumber
 		};
 
-		setAddMessage(
-			`Added ${newName}`
-		)
-		setTimeout(() => {
-			setAddMessage(null)
-		}, 3000)
+		
 		
 
 		personService
 			.create(nameObject)
 			.then(returnedNote => {
 				setPersons(persons.concat(returnedNote))
+				setAddMessage(
+					`Added ${newName}`
+				)
+				setTimeout(() => {
+					setAddMessage(null)
+				}, 3000)
 				setNewName('')
 				setNewNumber('')
 			})
-
-		// setPersons(persons.concat(nameObject))
-		// setNewName('')
-		// setNewNumber('')
+			.catch(error => {
+				setErrorMessage(
+					error.response.data.error
+				)
+				setTimeout(() => {
+					setErrorMessage(null)
+				}, 3000)
+			})
 	};
 
 	const handleNameChange = (event) => {
